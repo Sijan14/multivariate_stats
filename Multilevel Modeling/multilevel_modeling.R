@@ -1,6 +1,7 @@
 library(lme4)
 library(nlme)
 library(haven)
+library(lmerTest)
 
 df <- read_sav("Nurses.sav")
 names(df)
@@ -27,3 +28,4 @@ summary(mlm_model2)
 
 # adding random slope to the model
 mlm_model3 <- lmer(stress ~ age + gender + experien + as.factor(hospsize) + (1 + age|hospital), data = df)
+summary(mlm_model3)
